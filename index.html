@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Ninja & Tiger</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header id="header">
+            <button class="hider" onclick="hide('ninja')">NINJA</button>
+            <button class="main" onclick="hide('')"><h1>Ninja & Tiger</h1></button>
+            <button class="hider" onclick="hide('tiger')">TIGER</button>
+        </header>
+        <main>
+            <section id="ninja">
+                <img src="images/Ninja1.jpg">
+                <img src="images/Ninja2.jpg">
+                <img src="images/Ninja3.jpg">
+                <img src="images/Ninja4.jpg">
+            </section>
+            <section id="tiger">
+                <img src="images/Tiger1.jpg">
+                <img src="images/Tiger2.jpg">
+                <img src="images/Tiger3.jpg">
+                <img src="images/Tiger4.jpg">
+            </section>
+        </main>
+        <script>
+            function hide(text) {
+                console.log(text)
+                var arr = [].slice.call(document.getElementsByClassName("hidden"));
+                arr.forEach(element => {
+                    element.classList.remove("hidden");
+                });
+                switch (text) {
+                    case "ninja":
+                        document.getElementById("tiger").classList.add("hidden");
+                        break;
+                    case "tiger":
+                        document.getElementById("ninja").classList.add("hidden");
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            const headerClassList = document.getElementById("header").classList;
+            document.addEventListener('scroll', (e) => {
+                if(scrollY > 0) {
+                    headerClassList.add("active");
+                } else {
+                    headerClassList.remove("active");
+                }
+            });
+          </script>
+    </body>
+</html>
